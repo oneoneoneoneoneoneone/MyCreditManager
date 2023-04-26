@@ -1,5 +1,5 @@
 //
-//  CoreFunction.swift
+//  StudentGradeManager.swift
 //  MyCreditManager
 //
 //  Created by hana on 2023/04/27.
@@ -106,6 +106,7 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         studentGrades.forEach{sg in
             print("\(sg.subject) : \(sg.grade.rawValue)")
         }
+        //평점을 구하렴..
         print("평점 : \("")")
     }
 }
