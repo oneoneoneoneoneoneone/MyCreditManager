@@ -74,11 +74,13 @@ class Main{
                 let inputData = readLine()!
                 
                 try studentGradeManager?.removeGrade(inputData)
+                
             case .getAverage:
                 print("평점을 알고싶은 학생의 이름을 입력해주세요")
                 let inputData = readLine()!
                 
                 try studentGradeManager?.getAverage(inputData)
+                
             case .exit:
                 throw InputError.Exit
             }
@@ -87,4 +89,15 @@ class Main{
             throw InputError.wrongStartValue
         }
     }
+}
+
+//MARK: Enum Task
+
+enum Task: String{
+    case studentAdd = "1"
+    case studentRemove = "2"
+    case gradeAdd = "3"
+    case gradeRemove = "4"
+    case getAverage = "5"
+    case exit = "X"
 }
