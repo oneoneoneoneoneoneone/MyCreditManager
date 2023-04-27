@@ -23,7 +23,7 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentName == "" || studentName.contains(" ") {
             throw InputError.wrongValue
         }
-        
+        //학생 찾기
         if students.first(where: {$0.name == studentName}) != nil {
             throw InputError.duplicationStudent(student: studentName)
         }
@@ -37,7 +37,7 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentName == "" || studentName.contains(" ") {
             throw InputError.wrongValue
         }
-        
+        //학생 찾기
         if students.first(where: {$0.name == studentName}) == nil {
             throw InputError.nonexistentStudent(student: studentName)
         }
@@ -51,17 +51,17 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentGrade == "" {
             throw InputError.wrongValue
         }
-        
         //쪼개기
         let studentGrade = studentGrade.components(separatedBy: " ")
         if studentGrade.count != 3{
             throw InputError.wrongValue
         }
-        //성적값 검증
-        guard let grade = Grade(rawValue:studentGrade[2]) else {
+        //성적값 검증. Regex literal
+        let regex = /^[A-D][+]$|^[A-F]$/
+        guard let grade = try regex.firstMatch(in: studentGrade[2])?.output else {
             throw InputError.wrongValue
         }
-        
+        //학생 찾기
         guard let student = students.first(where: {$0.name == studentGrade[0]}) else {
             throw InputError.nonexistentStudent(student: studentGrade[0])
         }
@@ -69,9 +69,9 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentGrades.first(where: {$0.student.name == student.name && $0.subject == studentGrade[1]}) != nil{
             studentGrades.removeAll(where: {$0.student.name == student.name && $0.subject == studentGrade[1]})
         }
-        studentGrades.append(StudentGrade(student: student, subject: studentGrade[1], grade: grade))
+        studentGrades.append(StudentGrade(student: student, subject: studentGrade[1], grade: String(grade)))
         
-        print("\(studentGrade[0]) 학생의 \(studentGrade[1]) 과목이 \(grade.rawValue)로 추가(변경)되었습니다.")
+        print("\(studentGrade[0]) 학생의 \(studentGrade[1]) 과목이 \(grade)로 추가(변경)되었습니다.")
     }
 
     func removeGrade(_ studentGrade: String) throws{
@@ -83,7 +83,7 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentGrade.count != 2{
             throw InputError.wrongValue
         }
-        
+        //학생 찾기
         guard let student = students.first(where: {$0.name == studentGrade[0]}) else {
             throw InputError.nonexistentStudent(student: studentGrade[0])
         }
@@ -97,17 +97,36 @@ class StudentGradeManager: StudentGradeManagerProtocol{
         if studentName == "" || studentName.contains(" ") {
             throw InputError.wrongValue
         }
-        
+        //학생 찾기
         guard let student = students.first(where: {$0.name == studentName}) else {
             throw InputError.nonexistentStudent(student: studentName)
         }
-        
+        //성적 찾기
         let studentGrades = studentGrades.filter({$0.student.name == student.name})
+        
+        var totalScore = 0.0
         studentGrades.forEach{sg in
-            print("\(sg.subject) : \(sg.grade.rawValue)")
+            totalScore += getNuberScore(sg.grade)
+            
+            print("\(sg.subject) : \(sg.grade)")
         }
-        //평점을 구하렴..
-        print("평점 : \("")")
+        print(String(format: "평점 : %.2f", totalScore/Double(studentGrades.count)))
+    }
+    
+    private func getNuberScore(_ grade: String) -> Double{
+        var score = 0.0
+        switch grade.first{
+        case "A": score += 4
+        case "B": score += 3
+        case "C": score += 2
+        case "D": score += 1
+        default:
+            break
+        }
+        if grade.last == "+"{
+            score += 0.5
+        }
+        
+        return score
     }
 }
-
