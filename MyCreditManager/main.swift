@@ -109,14 +109,4 @@ enum Task: String, CaseIterable{
             return "프로그램을 종료합니다..."
         }
     }
-    
-//    var result: String{
-//        switch self{
-//
-//        case .studentAdd(let a: String):
-//            return "aa"
-//        default: break
-//
-//        }
-//    }
 }
