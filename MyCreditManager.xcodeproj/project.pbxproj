@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3307407029F8E8F300823DC2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3307406F29F8E8F300823DC2 /* main.swift */; };
+		333493362A0D828200B97506 /* MyCreditManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333493352A0D828200B97506 /* MyCreditManagerType.swift */; };
 		33D957EA29F971BA0016B1F6 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D957E929F971BA0016B1F6 /* InputError.swift */; };
 		33D957EC29F972350016B1F6 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D957EB29F972350016B1F6 /* Student.swift */; };
-		33D957EE29F972440016B1F6 /* StudentGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D957ED29F972440016B1F6 /* StudentGrade.swift */; };
-		33D957F229F97C1B0016B1F6 /* StudentGradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D957F129F97C1B0016B1F6 /* StudentGradeManager.swift */; };
+		33D957F229F97C1B0016B1F6 /* MyCreditManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D957F129F97C1B0016B1F6 /* MyCreditManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +29,10 @@
 /* Begin PBXFileReference section */
 		3307406C29F8E8F300823DC2 /* MyCreditManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MyCreditManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		3307406F29F8E8F300823DC2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		333493352A0D828200B97506 /* MyCreditManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCreditManagerType.swift; sourceTree = "<group>"; };
 		33D957E929F971BA0016B1F6 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		33D957EB29F972350016B1F6 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		33D957ED29F972440016B1F6 /* StudentGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGrade.swift; sourceTree = "<group>"; };
-		33D957F129F97C1B0016B1F6 /* StudentGradeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGradeManager.swift; sourceTree = "<group>"; };
+		33D957F129F97C1B0016B1F6 /* MyCreditManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCreditManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				3307406F29F8E8F300823DC2 /* main.swift */,
-				33D957F129F97C1B0016B1F6 /* StudentGradeManager.swift */,
+				33D957F129F97C1B0016B1F6 /* MyCreditManager.swift */,
+				333493352A0D828200B97506 /* MyCreditManagerType.swift */,
 				33D957EF29F972530016B1F6 /* Entity */,
 				33D957F029F9727F0016B1F6 /* Error */,
 			);
@@ -76,7 +77,6 @@
 		33D957EF29F972530016B1F6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				33D957ED29F972440016B1F6 /* StudentGrade.swift */,
 				33D957EB29F972350016B1F6 /* Student.swift */,
 			);
 			path = Entity;
@@ -149,10 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3307407029F8E8F300823DC2 /* main.swift in Sources */,
-				33D957F229F97C1B0016B1F6 /* StudentGradeManager.swift in Sources */,
+				33D957F229F97C1B0016B1F6 /* MyCreditManager.swift in Sources */,
 				33D957EC29F972350016B1F6 /* Student.swift in Sources */,
 				33D957EA29F971BA0016B1F6 /* InputError.swift in Sources */,
-				33D957EE29F972440016B1F6 /* StudentGrade.swift in Sources */,
+				333493362A0D828200B97506 /* MyCreditManagerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

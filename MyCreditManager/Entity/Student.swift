@@ -9,4 +9,10 @@ import Foundation
 
 struct Student{
     let name: String
+    var grades: [Grade] = []
+    
+    struct Grade{
+        let subject: String
+        var grade: String
+    }
 }
